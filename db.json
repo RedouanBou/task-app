@@ -1,0 +1,66 @@
+{
+  "boards": [
+    {
+      "title": "Work",
+      "id": 1
+    },
+    {
+      "title": "Personal Projects",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "Highest",
+      "id": 1
+    },
+    {
+      "name": "High",
+      "id": 2
+    },
+    {
+      "name": "Meduim",
+      "id": 3
+    },
+    {
+      "name": "Low",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Redouan",
+      "lastName": "Doe",
+      "email": "redouan.doe@gmail.com",
+      "password": "$2a$10$bsTPTVOAw04DOKfRnPDsVOWcAl0YnFROOZtM6V6ofUbf0ZGzz3gJy"
+    },
+    {
+      "id": 2,
+      "firstName": "Eva",
+      "lastName": "Griep",
+      "email": "eva.griep@gmail.com",
+      "password": "$2a$10$bsTPTVOAw04DOKfRnPDsVOWcAl0YnFROOZtM6V6ofUbf0ZGzz3gJy"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Note 1",
+      "description": "This are my notes for note 1",
+      "completed": false,
+      "board": [
+        {
+          "title": "Work",
+          "id": 1
+        }
+      ],
+      "category": [
+        {
+          "name": "Highest",
+          "id": 1
+        }
+      ]
+    }
+  ]
+}

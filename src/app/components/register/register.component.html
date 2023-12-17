@@ -1,0 +1,41 @@
+<div class="container">
+    <form [formGroup]="formValue">
+        <div class="login-container">
+            <h1 class="border-bottom" style="text-align: center; padding: 10px">Create Account</h1>
+
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" formControlName="firstName" name="firstName" required class="form-control">
+                <small *ngIf="formValue.get('firstName')?.invalid && formValue.get('firstName')?.touched" class="text-danger">First Name is required!</small>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" formControlName="lastName" name="lastName" required class="form-control">
+                <small *ngIf="formValue.get('lastName')?.invalid && formValue.get('lastName')?.touched" class="text-danger">Last Name is required!</small>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" formControlName="email" name="email" required class="form-control">
+                <small *ngIf="formValue.get('email')?.invalid && formValue.get('email')?.touched" class="text-danger">Email is required!</small>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" name="password" required class="form-control">
+                <small *ngIf="formValue.get('password')?.invalid && formValue.get('password')?.touched" class="text-danger">Password is required!</small>
+            </div>
+            
+            <br />
+
+            <button class="btn btn-success pull-right">Create Account</button>
+        </div>
+    </form>
+</div>

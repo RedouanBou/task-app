@@ -1,0 +1,24 @@
+<div class="container">
+    <form [formGroup] = "formValue">
+        <div class="login-container">
+            <h1 class="border-bottom" style="text-align: center; padding: 10px">Login</h1>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" formControlName="email" name="email" required class="form-control">
+                <small *ngIf="formValue.get('email')?.invalid && formValue.get('email')?.touched" class="text-danger">Email is required!</small>
+            </div>
+
+            <br />
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" name="password" required class="form-control">
+                <small *ngIf="formValue.get('password')?.invalid && formValue.get('password')?.touched" class="text-danger">Password is required!</small>
+            </div>
+            
+            <br />
+
+            <button class="btn btn-success pull-right">Login</button>
+        </div>
+    </form>
+</div>

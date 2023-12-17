@@ -1,0 +1,83 @@
+<div class="row border-bottom">
+    <div class="col-sm-10">
+        <h1>Tasks of Board {{ this.boardId }}</h1>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-success" style="float: right;" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Task</button>
+    </div>
+</div>
+
+<div class="mt-3">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Completed?</th>
+                <th>Category</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tasksArray">
+                <td>{{ item.id }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.completed ? "Completed" : "Not Completed" }}</td>
+                <td><b *ngFor="let cat of item.category">{{ cat.name }}</b></td>
+                <td>
+                    <button (click)="edit(item)" data-bs-toggle="modal" class="btn btn-info" data-bs-target="#exampleModal">edit</button> |
+                    <button class="btn btn-danger" (click)="deleteTask(item.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 *ngIf="showAdd" class="modal-title">Add new task</h5>
+                <h5 *ngIf="showEdit" class="modal-title">Edit task</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="border: 0; background: white; font-weight: bold;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup] = "formValue">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Title</label>
+                        <input type="text" formControlName="title" name="title" class="form-control" id="exampleInputEmail1" placeholder="Name ...">
+                        <small *ngIf="formValue.get('title')?.invalid && formValue.get('title')?.touched" class="text-danger">Title is required!</small>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Description</label>
+                        <textarea formControlName="description" class="form-control" cols="" rows=""></textarea>
+                        <small *ngIf="formValue.get('description')?.invalid && formValue.get('description')?.touched" class="text-danger">Description is required!</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Category</label>
+                        <select formControlName="category" class="form-control">
+                            <option value="">Selecteer een categorie</option>
+                            <option *ngFor="let cat of categoriesArray" value="{{cat.id}}">{{cat.name}}</option>
+                        </select>
+                        <small *ngIf="formValue.get('category')?.invalid && formValue.get('category')?.touched" class="text-danger">Category is required!</small>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                <button *ngIf="showAdd" (click)="addTask()" [disabled]="formValue.invalid" type="button" class="btn btn-success">Add</button>
+                <button *ngIf="showEdit" (click)="updateTask()" [disabled]="formValue.invalid" type="button" class="btn btn-success">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

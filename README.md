@@ -1,27 +1,46 @@
-# TaskApp
+# Task App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
+Dit repository bevat een Angular-project dat lokaal kan worden ontwikkeld met de hulp van JSON Server. JSON Server is een eenvoudige REST API-server die wordt gebruikt om een tijdelijke backend voor ontwikkelingsdoeleinden te simuleren.
 
-## Development server
+## Vereisten
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Zorg ervoor dat je de volgende software geïnstalleerd hebt:
 
-## Code scaffolding
+- [Node.js](https://nodejs.org/) (LTS-versie wordt aanbevolen)
+- [Angular CLI](https://angular.io/cli) (geïnstalleerd met `npm install -g @angular/cli`)
+- [JSON Server](https://github.com/typicode/json-server) (geïnstalleerd met `npm install -g json-server`)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Aan de slag
 
-## Build
+1. **Kloon dit repository:**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    ```bash
+    git clone https://github.com/RedouanBou/task-app.git
+    cd task-app
+    ```
 
-## Running unit tests
+2. **Installeer afhankelijkheden:**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    ```bash
+    npm install
+    ```
 
-## Running end-to-end tests
+3. **Start JSON Server:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ```bash
+    json-server --watch db.json --port 3000
+    ```
 
-## Further help
+    Hierbij is `db.json` het bestand dat de gegevens voor de REST API bevat.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+4. **Start de Angular-applicatie:**
+
+    Open een nieuw terminalvenster en voer het volgende uit:
+
+    ```bash
+    ng serve
+    ```
+
+5. **Bekijk de applicatie:**
+
+    Open je webbrowser en navigeer naar [http://localhost:4200/](http://localhost:4200/) om de Angular-app te bekijken.
